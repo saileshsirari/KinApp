@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.google.samples.apps.sunflower.CaseStudyDetailViewModel" />
+            type="com.kin.carta.android.CaseStudyDetailViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            android:theme="@style/Theme.Sunflower.AppBarOverlay">
+            android:theme="@style/Theme.KinAndCarta.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/toolbar_layout"
@@ -82,7 +82,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:contentDescription="@string/a11y_plant_item_image"
+                android:contentDescription="@string/item_hero_image"
                 android:gravity="center_horizontal|bottom"
                 android:scaleType="centerCrop"
                 app:imageFromUrl="@{viewModel.caseStudy.heroImage}"
