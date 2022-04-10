@@ -16,9 +16,16 @@
 
 package com.kin.carta.android.casestudies
 
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.MutableLiveData
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.gson.internal.LinkedTreeMap
 import com.kin.carta.android.BaseViewModel
+import com.kin.carta.android.SingleLiveEvent
+import com.kin.carta.android.adapters.ImageLoadListener
 import com.kin.carta.android.data.BodyElement
 import com.kin.carta.android.data.CaseStudy
 import com.kin.carta.android.data.ImageUrl
@@ -27,6 +34,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CaseStudyDetailsViewModel @Inject constructor() : BaseViewModel() {
+    private val imageLoaded =SingleLiveEvent<Boolean>()
     val caseStudy = MutableLiveData<CaseStudy>()
     val items = MutableLiveData<List<CaseStudySectionItemViewModel>>()
 
@@ -66,6 +74,36 @@ class CaseStudyDetailsViewModel @Inject constructor() : BaseViewModel() {
 
             }
             items.postValue(list)
+        }
+    }
+    val listener = object : ImageLoadListener {
+        override fun onImageLoaded() {
+            imageLoaded.value =true
+        }
+
+        override fun onImageFailedToLoad() {
+            imageLoaded.value =false
+        }
+
+    }
+    val requestListener  = object : RequestListener<Drawable> {
+        override fun onLoadFailed(
+            e: GlideException?,
+            model: Any?,
+            target: Target<Drawable>?,
+            isFirstResource: Boolean
+        ): Boolean {
+            return false;
+        }
+
+        override fun onResourceReady(
+            resource: Drawable?,
+            model: Any?,
+            target: Target<Drawable>?,
+            dataSource: DataSource?,
+            isFirstResource: Boolean
+        ): Boolean {
+            return true;
         }
     }
 }

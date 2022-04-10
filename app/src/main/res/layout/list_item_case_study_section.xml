@@ -22,11 +22,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/bright_orange"
             android:layout_marginTop="@dimen/margin_normal"
             android:gravity="center_horizontal"
             android:text="@{viewModel.sectionTitle}"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textAppearance="?attr/textAppearanceHeadline5"
             app:isGone="@{viewModel.sectionTitle ==null}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_normal"
             android:gravity="center_horizontal"
+            android:textColor="@color/secondaryTextColorInverse"
             android:text="@{viewModel.bodyElement.body}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             app:isGone="@{viewModel.bodyElement.body==null}"
@@ -53,10 +53,23 @@
             android:contentDescription="@string/body_image"
             android:scaleType="fitXY"
             app:imageFromUrl="@{viewModel.bodyElement.imageUrl.imageUrl}"
-            app:isGone="@{viewModel.bodyElement.imageUrl==null}"
+            app:requestListener="@{viewModel.listener}"
+            app:isGone="@{viewModel.bodyElement.imageUrl==null }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvBodyElement" />
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/progress"
+            app:isGone="@{viewModel.bodyElement.imageUrl==null || viewModel.imageLoaded==false}"
+            app:indicatorColor="@color/secondaryTextColor"
+            app:indicatorName="BallClipRotatePulseIndicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSection"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

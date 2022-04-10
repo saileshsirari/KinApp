@@ -1,5 +1,5 @@
 
-package com.kin.karta.android.sample.utilities
+package com.kin.carta.android.utilities
 
 import android.app.Application
 import android.content.Context

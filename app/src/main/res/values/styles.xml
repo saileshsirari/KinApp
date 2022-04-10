@@ -1,14 +1,18 @@
 <resources>
 
     <style name="Base.Theme.KinAndCarta" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/sunflower_green_500</item>
-        <item name="colorOnPrimary">@color/sunflower_yellow_500</item>
-        <item name="colorPrimaryDark">@color/sunflower_green_700</item>
-        <item name="colorOnSurface">@color/sunflower_black</item>
-        <item name="colorAccent">@color/sunflower_green_700</item>
-        <item name="colorSurface">@color/sunflower_gray_50</item>
-        <item name="colorSecondary">@color/sunflower_yellow_500</item>
-        <item name="android:colorBackground">@color/sunflower_green_500</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/primaryLightColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorOnSurface">@color/primaryLightColor</item>
+        <item name="colorAccent">@color/secondaryColor</item>
+        <item name="colorSurface">@color/secondaryLightColor</item>
+        <item name="colorSecondary">@color/secondaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorPrimaryInverse">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="android:colorBackground">@color/primaryColor</item>
+
     </style>
 
     <style name="Theme.KinAndCarta" parent="Base.Theme.KinAndCarta"/>
@@ -20,8 +24,5 @@
 
     <style name="Theme.KinAndCarta.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
-    <style name="TextAppearance.KinAndCarta.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
-        <item name="android:textColor">?attr/colorOnSurface</item>
-    </style>
 
 </resources>

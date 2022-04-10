@@ -19,6 +19,5 @@
 
     <style name="GeneralLoader">
         <item name="android:textSize">@dimen/text_size_20</item>
-        <item name="android:textColor">@color/bright_orange</item>
     </style>
 </resources>
