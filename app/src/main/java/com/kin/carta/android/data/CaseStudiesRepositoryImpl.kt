@@ -5,11 +5,9 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.kin.carta.android.api.ICaseStudiesApi
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
-class CaseStudiesRepository @Inject constructor(private val apiI: ICaseStudiesApi) {
-
-    fun getCaseStudies(): Flow<PagingData<CaseStudy>> {
+class CaseStudiesRepositoryImpl(private val apiI: ICaseStudiesApi) : ICaseStudiesRepository {
+    override  fun getCaseStudies(): Flow<PagingData<CaseStudy>> {
         return Pager(
             config = PagingConfig(enablePlaceholders = false, pageSize = NETWORK_PAGE_SIZE),
             pagingSourceFactory = { CaseStudiesPagingSource(apiI) }

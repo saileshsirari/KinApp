@@ -1,6 +1,6 @@
 package com.kin.carta.android.di
 
-import com.kin.carta.android.api.CaseStudiesService
+import com.kin.carta.android.api.ICaseStudiesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun provideCaseStudiesService(): CaseStudiesService {
-        return CaseStudiesService.create()
+    fun provideCaseStudiesService(): ICaseStudiesApi {
+        return ICaseStudiesApi.create()
     }
 }

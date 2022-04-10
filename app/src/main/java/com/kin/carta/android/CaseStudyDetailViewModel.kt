@@ -3,6 +3,7 @@ package com.kin.carta.android
 import com.google.gson.internal.LinkedTreeMap
 import com.kin.carta.android.data.BodyElement
 import com.kin.carta.android.data.CaseStudy
+import com.kin.carta.android.data.ImageUrl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -34,12 +35,14 @@ class CaseStudyDetailViewModel @Inject constructor(
                             )
                         )
                     } else if (it is LinkedTreeMap<*, *>) {
-                        list.add(
-                            CaseStudySectionItemViewModel(
-                                null,
-                                BodyElement(null, null)
+                        if(it.keys.contains(ImageUrl.KEY_IMAGE_URL)) {
+                            list.add(
+                                CaseStudySectionItemViewModel(
+                                    null,
+                                    BodyElement(ImageUrl(it[ImageUrl.KEY_IMAGE_URL] as String), null)
+                                )
                             )
-                        )
+                        }
                     }
                 }
 

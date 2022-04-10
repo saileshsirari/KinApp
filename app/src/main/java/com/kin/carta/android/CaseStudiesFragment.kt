@@ -1,4 +1,3 @@
-
 package com.kin.carta.android
 
 import androidx.lifecycle.lifecycleScope
@@ -21,13 +20,20 @@ class CaseStudiesFragment :
     override fun performPostBindingOperations() {
         super.performPostBindingOperations()
         viewBinding.caseStudiesRecyclerView.adapter = adapter
-        viewModel.getCaseStudiesRequest.value = true
         job?.cancel()
-        job = lifecycleScope.launch {
-            viewModel.getCaseStudies().collectLatest {
-                adapter.submitData(it)
+        viewModel.getCaseStudiesRequest.value =true
+        viewModel.getCaseStudies.observe(viewLifecycleOwner) {
+            it?.let {
+                job = lifecycleScope.launch {
+                    adapter.submitData(it)
+                }
             }
         }
+        /*job = lifecycleScope.launch {
+            viewModel.getCaseStudies()?.collectLatest {
+                adapter.submitData(it)
+            }
+        }*/
     }
 
     override fun onDestroy() {

@@ -30,7 +30,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/ivSection"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/hero_image_height"
                 android:contentDescription="@string/section_image"
@@ -41,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/plant_name"
+                android:id="@+id/tvTeaser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_normal"
@@ -50,7 +50,7 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView" />
+                app:layout_constraintTop_toBottomOf="@id/ivSection" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

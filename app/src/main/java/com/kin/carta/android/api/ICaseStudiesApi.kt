@@ -11,7 +11,7 @@ import retrofit2.http.GET
 /**
  * Used to connect to the Unsplash API to fetch photos
  */
-interface CaseStudiesService {
+interface ICaseStudiesApi {
 
     @GET("caseStudies.json")
     suspend fun getCaseStudies(
@@ -21,7 +21,7 @@ interface CaseStudiesService {
         private const val BASE_URL =
             "https://raw.githubusercontent.com/theappbusiness/engineering-challenge/main/endpoints/v1/"
 
-        fun create(): CaseStudiesService {
+        fun create(): ICaseStudiesApi {
             val logger = HttpLoggingInterceptor().apply { level = Level.BODY }
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
@@ -31,7 +31,7 @@ interface CaseStudiesService {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(CaseStudiesService::class.java)
+                .create(ICaseStudiesApi::class.java)
         }
     }
 }

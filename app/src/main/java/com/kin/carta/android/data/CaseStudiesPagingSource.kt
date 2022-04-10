@@ -3,15 +3,15 @@ package com.kin.carta.android.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.kin.carta.android.api.CaseStudiesService
+import com.kin.carta.android.api.ICaseStudiesApi
 
 class CaseStudiesPagingSource(
-    private val service: CaseStudiesService
+    private val api: ICaseStudiesApi
 ) : PagingSource<Int, CaseStudy>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CaseStudy> {
         return try {
-            val response = service.getCaseStudies()
+            val response = api.getCaseStudies()
             val cases = response.caseStudies
             LoadResult.Page(
                 data = cases,

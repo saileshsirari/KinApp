@@ -46,7 +46,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/ivSection"
             android:layout_width="0dp"
             android:layout_height="@dimen/hero_image_height"
             android:contentDescription="@string/body_image"
