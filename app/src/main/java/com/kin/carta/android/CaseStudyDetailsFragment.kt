@@ -9,11 +9,11 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CaseStudyDetailsFragment :
-    BaseDataFragment<FragmentCaseStudyDetailsBinding, CaseStudyDetailViewModel>(R.layout.fragment_case_study_details) {
+    BaseDataFragment<FragmentCaseStudyDetailsBinding, CaseStudyDetailsViewModel>(R.layout.fragment_case_study_details) {
     private val adapter = SectionAdapter()
     private val args: CaseStudyDetailsFragmentArgs? by navArgs()
-    override val viewModelClass: Class<CaseStudyDetailViewModel>
-        get() = CaseStudyDetailViewModel::class.java
+    override val viewModelClass: Class<CaseStudyDetailsViewModel>
+        get() = CaseStudyDetailsViewModel::class.java
 
     override fun performPreBindingOperations() {
         super.performPreBindingOperations()
@@ -33,9 +33,6 @@ class CaseStudyDetailsFragment :
         }
     }
 
-    override fun performUpdateOnViews() {
-        super.performUpdateOnViews()
-    }
 
     private fun initObservers() {
         viewModel.items.observe(viewLifecycleOwner) {

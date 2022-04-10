@@ -7,6 +7,6 @@ import kotlinx.parcelize.RawValue
 
 @Parcelize
 data class Section(
-    @SerializedName("title") val title: String,
-    @SerializedName("body_elements") val bodyElements: @RawValue List<Any>
+    @SerializedName("title") val title: String?,
+    @SerializedName("body_elements") val bodyElements: @RawValue List<Any?>
 ): Parcelable

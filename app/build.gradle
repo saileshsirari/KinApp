@@ -15,7 +15,9 @@ android {
         applicationId "com.kin.karta.android"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        testInstrumentationRunner "com.google.samples.apps.sunflower.utilities.MainTestRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kin.karta.android.sample.utilities.MainTestRunner"
+
         versionCode 1
         versionName "0.1.6"
         vectorDrawables.useSupportLibrary true
@@ -53,7 +55,6 @@ android {
 }
 
 dependencies {
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     implementation "com.airbnb.android:lottie:$lottieVersion"
@@ -83,24 +84,37 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
 
     // Testing dependencies
-
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2'
+    testImplementation "android.arch.core:core-testing:1.1.1"
+    testImplementation "org.mockito:mockito-core:3.3.1"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltVersion"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiAutomatorVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
+    def fragment_version = "1.4.1"
+    debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
+
+
+
+    /*kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtJunit"
     androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiAutomatorVersion"
-    androidTestImplementation "androidx.work:work-testing:$rootProject.workVersion"
-    androidTestImplementation "com.google.truth:truth:$rootProject.truthVersion"
     androidTestImplementation "com.google.dagger:hilt-android-testing:$rootProject.hiltVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.junit_text_ext_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.expresso_core_version"
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$rootProject.coroutinesVersion"
     testImplementation "org.mockito:mockito-core:3.3.1"
     testImplementation 'org.mockito:mockito-inline:2.13.0'
-    testImplementation 'junit:junit:4.13.2'
-
+    testImplementation 'junit:junit:4.13.2'*/
 
 }
 

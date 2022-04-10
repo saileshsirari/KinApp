@@ -20,38 +20,34 @@ import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
 @RunWith(org.mockito.junit.MockitoJUnitRunner::class)
-class CaseStudiesViewModelTest {
+class CaseStudyDetailsViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @get:Rule
     val mainCoroutineRule = TestCoroutineRule()
 
-    @Mock
-    private lateinit var repo: ICaseStudiesRepository
-
-    private lateinit var usecase: CaseStudiesUseCase
-    private lateinit var viewModel: CaseStudiesViewModel
+    private lateinit var viewModel: CaseStudyDetailsViewModel
 
     @Before
     fun init() {
         MockitoAnnotations.initMocks(this)
-        usecase = CaseStudiesUseCase(repo)
-        viewModel = CaseStudiesViewModel(usecase)
+        viewModel = CaseStudyDetailsViewModel()
     }
 
     @Test
-    fun getCaseStudies() {
+    fun getCaseStudy() {
         mainCoroutineRule.runBlockingTest {
-            val mockEntity = TestUtil.getCaseStudies()
-           val page =  PagingData.from(mockEntity.caseStudies)
-            `when`(usecase.getCaseStudies())
-                .thenReturn((flowOf(page)))
-            viewModel.getCaseStudiesRequest.value = true
-
-            val v = viewModel.getCaseStudies.getOrAwaitValue(5)
-
-            Assert.assertEquals(mockEntity.caseStudies, v)
+            val mockEntity = TestUtil.getCaseStudy()
+            viewModel.initItems(mockEntity)
+            val v = viewModel.items.getOrAwaitValue()
+            Assert.assertNotNull(v)
+            var sizeOfBodyElements = 0
+            mockEntity.sections.forEach {
+                sizeOfBodyElements =sizeOfBodyElements.plus(1)
+                sizeOfBodyElements =sizeOfBodyElements.plus(it.bodyElements.size)
+            }
+            Assert.assertEquals(sizeOfBodyElements,v.size)
         }
     }
 }

@@ -4,12 +4,13 @@ import com.google.gson.internal.LinkedTreeMap
 import com.kin.carta.android.data.BodyElement
 import com.kin.carta.android.data.CaseStudy
 import com.kin.carta.android.data.ImageUrl
+import com.kin.carta.android.data.Section
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 
 @HiltViewModel
-class CaseStudyDetailViewModel @Inject constructor(
+class CaseStudyDetailsViewModel @Inject constructor(
 
 ) :
     BaseViewModel() {
