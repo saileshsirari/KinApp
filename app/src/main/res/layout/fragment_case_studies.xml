@@ -54,15 +54,6 @@
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-            <!-- Override tabIconTint attribute of style with selector -->
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
-                style="@style/Widget.MaterialComponents.TabLayout.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:tabIconTint="@drawable/tab_icon_color_selector"
-                app:tabTextColor="?attr/colorPrimaryDark"/>
-
         </com.google.android.material.appbar.AppBarLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

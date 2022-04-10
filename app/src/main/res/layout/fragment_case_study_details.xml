@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewModel"
             type="com.kin.carta.android.casestudies.CaseStudyDetailsViewModel" />
@@ -26,87 +28,66 @@
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll"
                 android:paddingStart="@dimen/dimen_18"
                 android:paddingEnd="@dimen/dimen_18"
+                app:layout_scrollFlags="scroll"
+
                 app:toolbarId="@id/toolbar">
 
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/toolbar"
-                    style="@style/Widget.MaterialComponents.Toolbar.Primary"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="wrap_content"
-                    app:contentInsetStart="0dp"
-                    app:layout_collapseMode="parallax">
-
-                    <TextView
-                        android:id="@+id/tvTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/margin_normal"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:text="@{viewModel.caseStudy.title}"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                        android:textColor="@color/bright_orange"
-                        app:isGone="@{viewModel.caseStudy.title ==null}" />
-
-                </com.google.android.material.appbar.MaterialToolbar>
-
+                <ImageView
+                    android:id="@+id/ivSection"
+                    android:layout_marginTop="@dimen/dimen_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/section_header_height"
+                    android:contentDescription="@string/item_hero_image"
+                    android:gravity="center_horizontal|bottom"
+                    android:scaleType="fitXY"
+                    app:imageFromUrl="@{viewModel.caseStudy.heroImage}"
+                    app:isGone="@{viewModel.caseStudy.heroImage==null}"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-            <!-- Override tabIconTint attribute of style with selector -->
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
-                style="@style/Widget.MaterialComponents.TabLayout.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:tabIconTint="@drawable/tab_icon_color_selector"
-                app:tabTextColor="?attr/colorPrimaryDark" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
+            android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <ImageView
-                android:id="@+id/ivSection"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:contentDescription="@string/item_hero_image"
-                android:gravity="center_horizontal|bottom"
-                android:scaleType="centerCrop"
-                app:imageFromUrl="@{viewModel.caseStudy.heroImage}"
-                app:isGone="@{viewModel.caseStudy.heroImage==null}"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@{viewModel.caseStudy.title}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="@color/bright_orange"
+                app:isGone="@{viewModel.caseStudy.title ==null}"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:paddingStart="@dimen/dimen_18"
-                android:paddingEnd="@dimen/dimen_18"
                 android:id="@+id/caseStudyDetailRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/ivSection"
-                app:spanCount="1"
-                android:paddingBottom="@dimen/dimen_100"
                 android:clipToPadding="false"
+                android:paddingStart="@dimen/dimen_18"
+                android:paddingEnd="@dimen/dimen_18"
+                android:paddingBottom="@dimen/dimen_100"
+                app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                app:spanCount="1"
                 tools:context=".MainActivity"
                 tools:itemCount="10"
                 tools:listitem="@layout/list_item_case_study" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 </layout>

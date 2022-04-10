@@ -7,6 +7,8 @@
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="hero_image_height">95dp</dimen>
+    <dimen name="section_header_height">150dp</dimen>
+    <dimen name="section_image_height">75dp</dimen>
     <dimen name="toolbar_elevation">5dp</dimen>
     <dimen name="header_margin">24dp</dimen>
     <dimen name="gallery_header_margin">72dp</dimen>

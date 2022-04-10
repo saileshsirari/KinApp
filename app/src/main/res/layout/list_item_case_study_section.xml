@@ -47,10 +47,11 @@
 
         <ImageView
             android:id="@+id/ivSection"
+            android:layout_marginTop="@dimen/dimen_18"
             android:layout_width="0dp"
-            android:layout_height="@dimen/hero_image_height"
+            android:layout_height="@dimen/section_header_height"
             android:contentDescription="@string/body_image"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:imageFromUrl="@{viewModel.bodyElement.imageUrl.imageUrl}"
             app:isGone="@{viewModel.bodyElement.imageUrl==null}"
             app:layout_constraintEnd_toEndOf="parent"

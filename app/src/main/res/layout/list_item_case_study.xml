@@ -34,7 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/hero_image_height"
                 android:contentDescription="@string/section_image"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 app:imageFromUrl="@{viewModel.imageUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

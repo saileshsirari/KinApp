@@ -25,7 +25,6 @@ import com.kin.carta.android.data.ImageUrl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-
 @HiltViewModel
 class CaseStudyDetailsViewModel @Inject constructor() : BaseViewModel() {
     val caseStudy = MutableLiveData<CaseStudy>()
