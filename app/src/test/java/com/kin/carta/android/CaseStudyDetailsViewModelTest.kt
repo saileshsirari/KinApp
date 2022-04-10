@@ -1,21 +1,15 @@
 package com.kin.carta.android
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.paging.PagingData
-import androidx.paging.PagingSource
-import com.kin.carta.android.data.CaseStudiesUseCase
-import com.kin.carta.android.data.ICaseStudiesRepository
+import com.kin.carta.android.casestudies.CaseStudyDetailsViewModel
 import com.kin.carta.android.util.TestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi

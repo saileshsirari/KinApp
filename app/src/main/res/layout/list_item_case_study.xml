@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.kin.carta.android.CaseStudiesItemViewModel" />
+            type="com.kin.carta.android.casestudies.CaseStudiesItemViewModel" />
     </data>
 
     <com.kin.carta.android.views.MaskedCardView

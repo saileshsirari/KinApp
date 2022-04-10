@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.kin.carta.android.CaseStudySectionItemViewModel" />
+            type="com.kin.carta.android.casestudies.CaseStudySectionItemViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

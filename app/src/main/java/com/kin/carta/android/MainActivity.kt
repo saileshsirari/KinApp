@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity(), ProgressDialogInterface {
         super.onCreate(savedInstanceState)
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
-
     override fun showProgressDialog(message: String?) {
         if (progressDialog == null) {
             progressDialog = AlertDialog.Builder(this)

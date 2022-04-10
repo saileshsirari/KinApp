@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.kin.carta.android.CaseStudyDetailsViewModel" />
+            type="com.kin.carta.android.casestudies.CaseStudyDetailsViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

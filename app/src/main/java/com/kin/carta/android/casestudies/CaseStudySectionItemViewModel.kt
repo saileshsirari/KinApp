@@ -1,5 +1,5 @@
 
-package com.kin.carta.android
+package com.kin.carta.android.casestudies
 
 import com.kin.carta.android.data.BodyElement
 

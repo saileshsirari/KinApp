@@ -1,4 +1,3 @@
-
 package com.kin.carta.android
 
 import android.app.Activity
@@ -17,16 +16,19 @@ fun Int?.safe(): Int {
 
     return this
 }
+
 fun Exception.print() {
     if (BuildConfig.DEBUG) {
         printStackTrace()
     }
 }
+
 fun ViewGroup.swallowTouches() {
     isClickable = true
     isFocusable = false
     descendantFocusability = ViewGroup.FOCUS_BEFORE_DESCENDANTS
 }
+
 fun Activity.showSnackBar(
     createView: (snackBar: Snackbar, snackBarLayout: Snackbar.SnackbarLayout) -> View,
     length: Int = Snackbar.LENGTH_LONG,
@@ -43,25 +45,24 @@ fun Activity.showSnackBar(
     }
     snackBarView.clipChildren = false
     snackBarView.clipToPadding = false
-    snackBarView.setBackgroundColor( Color.TRANSPARENT)
+    snackBarView.setBackgroundColor(Color.TRANSPARENT)
     snackBarView.addView(createView(snackBar, snackBarView), 0)
     snackBar.show()
     return snackBar
 }
-/**
- * Show TexView if String is non-blank, otherwise hides with given 'hiddenCase'
- * @param text Text to set
- * @param hiddenCase Text hidden case (GONE or INVISIBLE)
- */
+
 fun TextView.setOrHide(text: String?, hiddenCase: Int = View.GONE) {
     this.text = text
     visibility = text.isNullOrBlank().toVisibilityHidden(hiddenCase)
 }
-fun Boolean.toVisibility(hiddenCase:Int = View.GONE ): Int {
+
+fun Boolean.toVisibility(hiddenCase: Int = View.GONE): Int {
     return if (this) View.VISIBLE else hiddenCase
 }
-fun Boolean.toVisibilityHidden(hiddenCase:Int = View.GONE): Int {
+
+fun Boolean.toVisibilityHidden(hiddenCase: Int = View.GONE): Int {
     return not().toVisibility(hiddenCase)
 }
+
 const val SNACK_BAR_DEFAULT_POSITION = Gravity.TOP.or(Gravity.CENTER_HORIZONTAL)
 

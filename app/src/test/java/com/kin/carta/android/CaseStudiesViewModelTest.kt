@@ -2,8 +2,8 @@ package com.kin.carta.android
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.paging.PagingData
-import androidx.paging.PagingSource
-import com.kin.carta.android.data.CaseStudiesUseCase
+import com.kin.carta.android.domain.CaseStudiesUseCase
+import com.kin.carta.android.casestudies.CaseStudiesViewModel
 import com.kin.carta.android.data.ICaseStudiesRepository
 import com.kin.carta.android.util.TestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kin.carta.android.CaseStudySectionItemViewModel
+import com.kin.carta.android.casestudies.CaseStudySectionItemViewModel
 import com.kin.carta.android.databinding.ListItemCaseStudySectionBinding
 
 class SectionAdapter(

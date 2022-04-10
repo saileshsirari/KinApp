@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.kin.carta.android.CaseStudiesFragment"
+        android:name="com.kin.carta.android.casestudies.CaseStudiesFragment"
         tools:layout="@layout/fragment_case_studies">
 
         <action
@@ -19,7 +19,7 @@
     </fragment>
 
     <fragment android:id="@+id/details_fragment"
-        android:name="com.kin.carta.android.CaseStudyDetailsFragment"
+        android:name="com.kin.carta.android.casestudies.CaseStudyDetailsFragment"
         tools:layout="@layout/fragment_case_study_details">
         <argument android:name="caseStudy"
             app:argType="com.kin.carta.android.data.CaseStudy"/>

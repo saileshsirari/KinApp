@@ -8,9 +8,9 @@ import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kin.carta.android.CaseStudiesFragmentDirections
-import com.kin.carta.android.CaseStudiesItemViewModel
+import com.kin.carta.android.casestudies.CaseStudiesItemViewModel
 import com.kin.carta.android.R
+import com.kin.carta.android.casestudies.CaseStudiesFragmentDirections
 import com.kin.carta.android.databinding.ListItemCaseStudyBinding
 
 class CaseStudiesAdaptor :
