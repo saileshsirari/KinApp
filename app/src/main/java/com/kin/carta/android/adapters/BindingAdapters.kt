@@ -38,8 +38,8 @@ interface ImageLoadListener {
     fun onImageFailedToLoad()
 }
 
-@BindingAdapter("imageFromUrl", "requestListener")
-fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageLoadListener) {
+@BindingAdapter("imageFromUrl")
+fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
     if (!imageUrl.isNullOrEmpty()) {
         Glide.with(view.context)
             .load(imageUrl)
@@ -51,7 +51,6 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageL
                     target: Target<Drawable>?,
                     isFirstResource: Boolean
                 ): Boolean {
-                    requestListener.onImageFailedToLoad()
                     view.visibility = View.GONE
                     return false
                 }
@@ -64,7 +63,6 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageL
                     isFirstResource: Boolean
                 ): Boolean {
                     view.setImageDrawable(resource)
-                    requestListener.onImageLoaded()
                     return true
                 }
             }

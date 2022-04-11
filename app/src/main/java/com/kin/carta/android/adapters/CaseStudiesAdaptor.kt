@@ -56,7 +56,7 @@ class CaseStudiesAdaptor :
 
         fun bind(caseStudy: CaseStudy) {
             with(binding) {
-                viewModel = CaseStudiesItemViewModel(caseStudy, binding)
+                viewModel = CaseStudiesItemViewModel(caseStudy)
                 executePendingBindings()
             }
         }

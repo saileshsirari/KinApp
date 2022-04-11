@@ -56,8 +56,7 @@
             app:isGone="@{viewModel.bodyElement.imageUrl==null }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBodyElement"
-            app:requestListener="@{viewModel.listener}" />
+            app:layout_constraintTop_toBottomOf="@id/tvBodyElement"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
