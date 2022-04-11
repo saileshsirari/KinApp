@@ -41,10 +41,9 @@ interface ImageLoadListener {
 @BindingAdapter("imageFromUrl", "requestListener")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageLoadListener) {
     if (!imageUrl.isNullOrEmpty()) {
-        // view.visibility =View.VISIBLE
         Glide.with(view.context)
             .load(imageUrl)
-            .placeholder(R.drawable.ic_launcher_foreground)
+            .placeholder(R.drawable.place_holder)
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -53,7 +52,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageL
                     isFirstResource: Boolean
                 ): Boolean {
                     requestListener.onImageFailedToLoad()
-                    // view.visibility =View.GONE
+                    view.visibility = View.GONE
                     return false
                 }
 
@@ -65,14 +64,11 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageL
                     isFirstResource: Boolean
                 ): Boolean {
                     view.setImageDrawable(resource)
-                    //   view.visibility =View.VISIBLE
                     requestListener.onImageLoaded()
                     return true
                 }
             }
             )
-
-
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .transition(DrawableTransitionOptions.withCrossFade())
             .into(view)
