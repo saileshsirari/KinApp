@@ -1,4 +1,5 @@
-package com.kin.carta.android
+
+package com.kin.carta.android.utils
 
 import androidx.lifecycle.LiveData
 

@@ -1,5 +1,6 @@
 package com.kin.carta.android
 
+import com.kin.carta.android.utils.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -14,10 +15,8 @@ class TestAppDispatcherProvider : DispatcherProvider {
 
     init {
         Dispatchers.setMain(TestCoroutineDispatcher())
-
         io = Dispatchers.Main
         main = Dispatchers.Main
-
     }
 }
 

@@ -10,13 +10,12 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import com.kin.carta.android.data.CaseStudiesAdaptor
+import com.kin.carta.android.adapters.CaseStudiesAdaptor
 import com.kin.carta.android.utilities.TestUtil
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
@@ -25,7 +24,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
-class CaseStydyScDetailFragmentTest {
+class CaseStydyDetailFragmentTest {
     private val hiltRule = HiltAndroidRule(this)
     private val activityTestRule = ActivityTestRule(MainActivity::class.java, true)
 

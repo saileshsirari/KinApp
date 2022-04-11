@@ -3,10 +3,8 @@ package com.kin.carta.android.casestudies
 import androidx.navigation.fragment.navArgs
 import com.kin.carta.android.BaseDataFragment
 import com.kin.carta.android.R
-import com.kin.carta.android.data.SectionAdapter
+import com.kin.carta.android.adapters.SectionAdapter
 import com.kin.carta.android.databinding.FragmentCaseStudyDetailsBinding
-import com.kin.carta.android.hideProgressDialog
-import com.kin.carta.android.showProgressDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -31,7 +29,6 @@ class CaseStudyDetailsFragment :
         viewBinding.caseStudyDetailRecyclerView.adapter = adapter
         viewBinding.executePendingBindings()
         args?.caseStudy?.let { caseStudy ->
-            showProgressDialog()
             viewModel.initItems(caseStudy)
         }
     }
@@ -40,7 +37,6 @@ class CaseStudyDetailsFragment :
     private fun initObservers() {
         viewModel.items.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-            hideProgressDialog()
         }
     }
 }

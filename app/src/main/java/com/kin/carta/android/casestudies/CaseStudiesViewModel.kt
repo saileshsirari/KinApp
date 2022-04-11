@@ -17,12 +17,9 @@
 package com.kin.carta.android.casestudies
 
 import androidx.lifecycle.*
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
-import com.kin.carta.android.AbsentLiveData
-import com.kin.carta.android.AppDispatchers
+import com.kin.carta.android.utils.AppDispatchers
 import com.kin.carta.android.BaseViewModel
-import com.kin.carta.android.data.CaseStudy
+import com.kin.carta.android.data.CaseStudiesResponseModel
 import com.kin.carta.android.domain.CaseStudiesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
@@ -34,19 +31,20 @@ class CaseStudiesViewModel @Inject constructor(
     private val useCase: CaseStudiesUseCase
 ) :
     BaseViewModel() {
+    private val needRefreshCache = false
+    private val cachedData = MutableLiveData<CaseStudiesResponseModel>()
     val getCaseStudiesRequest = MutableLiveData<Boolean>()
-    private val needRefreshCache = true
-    val getCaseStudies: LiveData<PagingData<CaseStudy>> =
+    val getCaseStudies: LiveData<CaseStudiesResponseModel?> =
         getCaseStudiesRequest.switchMap {
-            if (needRefreshCache) {
+            if (needRefreshCache || cachedData.value == null) {
                 liveData(viewModelScope.coroutineContext + AppDispatchers.IO) {
-                    useCase.getCaseStudies().cachedIn(viewModelScope).collect { res ->
-                        emit(res)
+                    useCase.getCaseStudies().collect { response ->
+                        cachedData.postValue(response)
+                        emit(response)
                     }
                 }
-
             } else {
-                AbsentLiveData.create()
+                cachedData
             }
         }
 }

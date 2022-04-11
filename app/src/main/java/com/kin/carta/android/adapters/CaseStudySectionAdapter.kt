@@ -1,4 +1,4 @@
-package com.kin.carta.android.data
+package com.kin.carta.android.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

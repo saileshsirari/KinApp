@@ -1,5 +1,6 @@
 package com.kin.carta.android
 
+import com.kin.carta.android.utils.AppDispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScope
 import org.junit.rules.TestWatcher

@@ -39,16 +39,11 @@ android {
     }
 
     kotlinOptions {
-        // work-runtime-ktx 2.1.0 and above now requires Java 8
         jvmTarget = "1.8"
-
-        // Enable Coroutines and Flow APIs
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
         freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
     packagingOptions {
-        // Multiple dependency bring these files in. Exclude them to enable
-        // our test APK to build (has no effect on our AARs)
         excludes += "/META-INF/AL2.0"
         excludes += "/META-INF/LGPL2.1"
     }
@@ -99,10 +94,4 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersion"
     def fragment_version = "1.4.1"
     debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
-
-
-}
-
-def getUnsplashAccess() {
-    return project.findProperty("unsplash_access_key")
 }

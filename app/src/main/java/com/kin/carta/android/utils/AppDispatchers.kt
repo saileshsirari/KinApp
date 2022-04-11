@@ -1,4 +1,4 @@
-package com.kin.carta.android
+package com.kin.carta.android.utils
 
 object AppDispatchers {
     var dispatcherProvider: DispatcherProvider = AppDispatcherProvider()

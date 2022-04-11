@@ -3,7 +3,7 @@ package com.kin.carta.android.di
 
 import com.kin.carta.android.api.ICaseStudiesApi
 import com.kin.carta.android.data.CaseStudiesRepositoryImpl
-import com.kin.carta.android.data.ICaseStudiesRepository
+import com.kin.carta.android.api.ICaseStudiesRepository
 import com.kin.carta.android.domain.CaseStudiesUseCase
 import dagger.Module
 import dagger.Provides

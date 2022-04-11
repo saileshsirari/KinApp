@@ -7,11 +7,8 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.kin.carta.android.utils.autoCleared
 
-
-/**
- * Base Fragment for all fragments
- */
 abstract class BaseFragment<B : ViewDataBinding>(@get:LayoutRes val layoutResId: Int?) :
     Fragment() {
 

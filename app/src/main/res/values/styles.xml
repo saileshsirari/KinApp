@@ -15,14 +15,12 @@
 
     </style>
 
-    <style name="Theme.KinAndCarta" parent="Base.Theme.KinAndCarta"/>
+    <style name="Theme.KinAndCarta" parent="Base.Theme.KinAndCarta" />
 
     <style name="Theme.KinAndCarta.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.KinAndCarta.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
-
-
+    <style name="Theme.KinAndCarta.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 </resources>

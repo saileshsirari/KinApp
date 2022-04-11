@@ -35,26 +35,12 @@
                 android:layout_height="@dimen/hero_image_height"
                 android:contentDescription="@string/section_image"
                 android:scaleType="fitXY"
-                app:isGone="@{viewModel.imageUrl==null}"
                 app:imageFromUrl="@{viewModel.imageUrl}"
-                app:requestListener="@{viewModel.listener}"
+                app:isGone="@{viewModel.imageUrl==null}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.wang.avi.AVLoadingIndicatorView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:id="@+id/progress"
-                android:visibility="gone"
-                app:isGone="@{viewModel.hideProgress==true}"
-                app:indicatorColor="@color/secondaryTextColor"
-                app:indicatorName="BallClipRotatePulseIndicator"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivSection"
-                />
+                app:layout_constraintTop_toTopOf="parent"
+                app:requestListener="@{viewModel.listener}" />
 
             <TextView
                 android:id="@+id/tvTeaser"
@@ -63,12 +49,11 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 android:gravity="center_horizontal"
                 android:text="@{viewModel.teaser}"
-                android:textColor="@color/secondaryTextColor"
                 android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="@color/secondaryTextColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ivSection" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

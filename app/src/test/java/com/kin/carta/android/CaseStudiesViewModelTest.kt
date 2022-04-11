@@ -1,10 +1,9 @@
 package com.kin.carta.android
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.paging.PagingData
-import com.kin.carta.android.domain.CaseStudiesUseCase
 import com.kin.carta.android.casestudies.CaseStudiesViewModel
-import com.kin.carta.android.data.ICaseStudiesRepository
+import com.kin.carta.android.api.ICaseStudiesRepository
+import com.kin.carta.android.domain.CaseStudiesUseCase
 import com.kin.carta.android.util.TestUtil
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
@@ -44,11 +43,11 @@ class CaseStudiesViewModelTest {
     fun getCaseStudies() {
         mainCoroutineRule.runBlockingTest {
             val mockEntity = TestUtil.getCaseStudies()
-           val page =  PagingData.from(mockEntity.caseStudies)
             `when`(usecase.getCaseStudies())
-                .thenReturn((flowOf(page)))
+                .thenReturn((flowOf(mockEntity)))
             viewModel.getCaseStudiesRequest.value = true
             Assert.assertNotNull(viewModel.getCaseStudies.getOrAwaitValue(5))
+            Assert.assertEquals(viewModel.getCaseStudies.value?.caseStudies, mockEntity.caseStudies)
         }
     }
 }

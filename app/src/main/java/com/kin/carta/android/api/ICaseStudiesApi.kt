@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 /**
- * Used to connect to the Unsplash API to fetch photos
+ * Used to connect to the CaseStudies API to fetch case studies
  */
 interface ICaseStudiesApi {
 

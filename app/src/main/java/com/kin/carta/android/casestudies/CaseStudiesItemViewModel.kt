@@ -10,7 +10,10 @@ import com.kin.carta.android.adapters.ImageLoadListener
 import com.kin.carta.android.data.CaseStudy
 import com.kin.carta.android.databinding.ListItemCaseStudyBinding
 
-class CaseStudiesItemViewModel(val caseStudy: CaseStudy, private val binding: ListItemCaseStudyBinding?) {
+class CaseStudiesItemViewModel(
+    val caseStudy: CaseStudy,
+    private val binding: ListItemCaseStudyBinding?
+) {
     val imageUrl
         get() = caseStudy.heroImage
     val teaser
@@ -19,8 +22,8 @@ class CaseStudiesItemViewModel(val caseStudy: CaseStudy, private val binding: Li
     val hideProgress = MutableLiveData<Boolean>(true)
     val listener = object : ImageLoadListener {
         override fun onImageLoaded() {
-            imageLoaded.value =false
-            hideProgress.value =true
+            imageLoaded.value = false
+            hideProgress.value = true
             binding?.executePendingBindings()
         }
 
@@ -29,27 +32,4 @@ class CaseStudiesItemViewModel(val caseStudy: CaseStudy, private val binding: Li
         }
 
     }
-   val requestListener  = object : RequestListener<Drawable> {
-       override fun onLoadFailed(
-           e: GlideException?,
-           model: Any?,
-           target: Target<Drawable>?,
-           isFirstResource: Boolean
-       ): Boolean {
-           imageLoaded.value =false
-           return false;
-       }
-
-       override fun onResourceReady(
-           resource: Drawable?,
-           model: Any?,
-           target: Target<Drawable>?,
-           dataSource: DataSource?,
-           isFirstResource: Boolean
-       ): Boolean {
-           imageLoaded.value =true
-           return false;
-       }
-   }
-
 }

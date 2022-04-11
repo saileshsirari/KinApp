@@ -1,4 +1,3 @@
-
 package com.kin.carta.android.views
 
 import android.annotation.SuppressLint

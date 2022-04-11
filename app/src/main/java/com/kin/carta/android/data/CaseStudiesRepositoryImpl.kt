@@ -1,20 +1,13 @@
 package com.kin.carta.android.data
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.kin.carta.android.api.ICaseStudiesApi
+import com.kin.carta.android.api.ICaseStudiesRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class CaseStudiesRepositoryImpl(private val apiI: ICaseStudiesApi) : ICaseStudiesRepository {
-    override  fun getCaseStudies(): Flow<PagingData<CaseStudy>> {
-        return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = NETWORK_PAGE_SIZE),
-            pagingSourceFactory = { CaseStudiesPagingSource(apiI) }
-        ).flow
-    }
 
-    companion object {
-        private const val NETWORK_PAGE_SIZE = 25
+    override fun getCaseStudies(): Flow<CaseStudiesResponseModel> {
+        return flow { emit(apiI.getCaseStudies()) }
     }
 }

@@ -1,4 +1,4 @@
-package com.kin.carta.android
+package com.kin.carta.android.utils
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

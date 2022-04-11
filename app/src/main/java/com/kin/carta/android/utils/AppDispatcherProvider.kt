@@ -1,4 +1,5 @@
-package com.kin.carta.android
+
+package com.kin.carta.android.utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

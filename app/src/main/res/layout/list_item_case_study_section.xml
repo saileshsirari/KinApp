@@ -37,9 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_normal"
             android:gravity="center_horizontal"
-            android:textColor="@color/secondaryTextColorInverse"
             android:text="@{viewModel.bodyElement.body}"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textColor="@color/secondaryTextColorInverse"
             app:isGone="@{viewModel.bodyElement.body==null}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,31 +47,17 @@
 
         <ImageView
             android:id="@+id/ivSection"
-            android:layout_marginTop="@dimen/dimen_18"
             android:layout_width="0dp"
             android:layout_height="@dimen/section_header_height"
+            android:layout_marginTop="@dimen/dimen_18"
             android:contentDescription="@string/body_image"
             android:scaleType="fitXY"
             app:imageFromUrl="@{viewModel.bodyElement.imageUrl.imageUrl}"
-            app:requestListener="@{viewModel.listener}"
             app:isGone="@{viewModel.bodyElement.imageUrl==null }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvBodyElement" />
-        <com.wang.avi.AVLoadingIndicatorView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_centerInParent="true"
-            android:id="@+id/progress"
-            app:isGone="@{viewModel.bodyElement.imageUrl==null || viewModel.imageLoaded==false}"
-            app:indicatorColor="@color/secondaryTextColor"
-            app:indicatorName="BallClipRotatePulseIndicator"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivSection"
-            />
+            app:layout_constraintTop_toBottomOf="@id/tvBodyElement"
+            app:requestListener="@{viewModel.listener}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </layout>

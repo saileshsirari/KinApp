@@ -1,20 +1,21 @@
-package com.kin.carta.android.data
+package com.kin.carta.android.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kin.carta.android.casestudies.CaseStudiesItemViewModel
 import com.kin.carta.android.R
 import com.kin.carta.android.casestudies.CaseStudiesFragmentDirections
+import com.kin.carta.android.casestudies.CaseStudiesItemViewModel
+import com.kin.carta.android.data.CaseStudy
 import com.kin.carta.android.databinding.ListItemCaseStudyBinding
 
 class CaseStudiesAdaptor :
-    PagingDataAdapter<CaseStudy, CaseStudiesAdaptor.ViewHolder>(
+    ListAdapter<CaseStudy, CaseStudiesAdaptor.ViewHolder>(
         CaseStudyDiffCallback()
     ) {
 
@@ -48,13 +49,14 @@ class CaseStudiesAdaptor :
         }
 
         private fun navigateToDetails(caseStudy: CaseStudy, view: View) {
-            val direction = CaseStudiesFragmentDirections.actionHomeFragmentToDetailFragment(caseStudy)
+            val direction =
+                CaseStudiesFragmentDirections.actionHomeFragmentToDetailFragment(caseStudy)
             view.findNavController().navigate(direction)
         }
 
         fun bind(caseStudy: CaseStudy) {
             with(binding) {
-                viewModel = CaseStudiesItemViewModel(caseStudy,binding)
+                viewModel = CaseStudiesItemViewModel(caseStudy, binding)
                 executePendingBindings()
             }
         }

@@ -42,7 +42,6 @@ abstract class BaseDataFragment<B : ViewDataBinding, V : BaseViewModel>(layoutRe
     }
 
     internal open fun onProgressDialogDataUpdate(visible: Boolean) {
-        setProgressDialog(visible)
     }
 
     fun progressDialog(visible: Boolean) {

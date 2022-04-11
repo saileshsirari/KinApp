@@ -1,4 +1,4 @@
-package com.kin.carta.android
+package com.kin.carta.android.utils
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -12,7 +12,7 @@ import kotlin.reflect.KProperty
  *
  * Accessing this variable in a destroyed fragment will throw NPE.
  */
-class AutoClearedValue<T : Any>(val lifecycleOwner: LifecycleOwner) :
+class AutoClearedValue<T : Any>(lifecycleOwner: LifecycleOwner) :
     ReadWriteProperty<LifecycleOwner, T>, DefaultLifecycleObserver {
     private var _value: T? = null
 

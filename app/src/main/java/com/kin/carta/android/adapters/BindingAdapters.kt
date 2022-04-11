@@ -32,15 +32,16 @@ fun bindIsGone(view: View, isGone: Boolean) {
         View.VISIBLE
     }
 }
-interface ImageLoadListener{
+
+interface ImageLoadListener {
     fun onImageLoaded()
     fun onImageFailedToLoad()
 }
 
-@BindingAdapter("imageFromUrl","requestListener")
-fun bindImageFromUrl(view: ImageView, imageUrl: String?,requestListener:ImageLoadListener ) {
+@BindingAdapter("imageFromUrl", "requestListener")
+fun bindImageFromUrl(view: ImageView, imageUrl: String?, requestListener: ImageLoadListener) {
     if (!imageUrl.isNullOrEmpty()) {
-       // view.visibility =View.VISIBLE
+        // view.visibility =View.VISIBLE
         Glide.with(view.context)
             .load(imageUrl)
             .placeholder(R.drawable.ic_launcher_foreground)
@@ -52,7 +53,7 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?,requestListener:ImageLoa
                     isFirstResource: Boolean
                 ): Boolean {
                     requestListener.onImageFailedToLoad()
-                   // view.visibility =View.GONE
+                    // view.visibility =View.GONE
                     return false
                 }
 
@@ -64,12 +65,12 @@ fun bindImageFromUrl(view: ImageView, imageUrl: String?,requestListener:ImageLoa
                     isFirstResource: Boolean
                 ): Boolean {
                     view.setImageDrawable(resource)
-                 //   view.visibility =View.VISIBLE
+                    //   view.visibility =View.VISIBLE
                     requestListener.onImageLoaded()
                     return true
                 }
             }
-                )
+            )
 
 
             .diskCacheStrategy(DiskCacheStrategy.ALL)

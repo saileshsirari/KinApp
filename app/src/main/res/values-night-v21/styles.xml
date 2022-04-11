@@ -1,7 +1,0 @@
-<resources>
-
-    <style name="Theme.KinAndCarta" parent="Base.Theme.KinAndCarta">
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-</resources>
